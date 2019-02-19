@@ -1,0 +1,8 @@
+
+Hello.Proxy=hello:tcp -p 10000
+
+Sms.Proxy=sendSms:tcp -p 10000
+
+Mail.Proxy=sendMail:tcp -p 10000
+
+Ice.Default.Host=localhost
