@@ -5,6 +5,9 @@ import com.txmd.generate.MailModule.MailAmdPrx;
 import com.txmd.generate.MailModule.MailAmdPrxHelper;
 import com.txmd.generate.MessageModule.SmsPrx;
 import com.txmd.generate.MessageModule.SmsPrxHelper;
+import com.txmd.generate.book.Message;
+import com.txmd.generate.book.OnlineBookPrx;
+import com.txmd.generate.book.OnlineBookPrxHelper;
 import com.txmd.generate.helloworld.HelloPrx;
 import com.txmd.generate.helloworld.HelloPrxHelper;
 
@@ -31,9 +34,52 @@ public class Client extends Application{
 
 //        sendSms();
 
+//        sendMail();
 
+//        bookTicket();
+
+
+
+
+        // 测试ShutdownHook
+        communicator().waitForShutdown();
+        return 0;
+    }
+
+    private void bookTicketRegistry() {
+        Ice.ObjectPrx base = communicator().propertyToProxy("OnlineBook@OnlineBookAdapter");
+        if(base == null){
+            throw new RuntimeException("cannot create proxy");
+        }
+        OnlineBookPrx onlineBookPrx = OnlineBookPrxHelper.checkedCast(base);
+        Message msg = new Message();
+        msg.name = "Feng";
+        msg.type = 3;
+        msg.price = 66;
+        msg.valid = true;
+        msg.content = "test icebox";
+        Message message = onlineBookPrx.bookTicket(msg);
+        System.out.println("server response: " + message.content);
+    }
+
+    private void bookTicket() {
+        Ice.ObjectPrx base = communicator().propertyToProxy("OnlineBook.Proxy");
+        if(base == null){
+            throw new RuntimeException("cannot create proxy");
+        }
+        OnlineBookPrx onlineBookPrx = OnlineBookPrxHelper.checkedCast(base);
+        Message msg = new Message();
+        msg.name = "Feng";
+        msg.type = 3;
+        msg.price = 66;
+        msg.valid = true;
+        msg.content = "test icebox";
+        Message message = onlineBookPrx.bookTicket(msg);
+        System.out.println("server response: " + message.content);
+    }
+
+    private void sendMail() {
         Ice.ObjectPrx base = communicator().propertyToProxy("Mail.Proxy");
-
 
 
         if(base == null){
@@ -42,26 +88,22 @@ public class Client extends Application{
         MailAmdPrx mailAmdPrx = MailAmdPrxHelper.checkedCast(base);
         System.out.println("发送邮箱");
 
-        mailAmdPrx.begin_sendMail("18380586504",
-            (result) -> {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("发送结果:" + result);
-            },
-            (ex) -> {
-                System.out.println("发送失败:" + ex);
-            });
-        System.out.println("发送结束");
-
-
-
-
-        // 测试ShutdownHook
-        communicator().waitForShutdown();
-        return 0;
+        int i = 0;
+        while (i++ < 100){
+            mailAmdPrx.begin_sendMail("18380586504",
+                (result) -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("发送结果:" + result);
+                },
+                (ex) -> {
+                    System.out.println("发送失败:" + ex);
+                });
+            System.out.println("发送结束");
+        }
     }
 
     private void sendSms() {

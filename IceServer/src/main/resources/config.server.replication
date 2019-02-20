@@ -1,0 +1,4 @@
+
+Hello.Endpoints=tcp -p 10001
+
+Ice.Default.Host=localhost

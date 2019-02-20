@@ -17,6 +17,11 @@
             <artifactId>ice</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.zeroc</groupId>
+            <artifactId>icebox</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>

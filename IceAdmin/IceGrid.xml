@@ -1,0 +1,48 @@
+<icegrid>
+    <application name="MyPowerIce2">
+        <properties id="MultiThreaded">
+            <property name="Ice.PrintStackTraces" value="1"/>
+            <property name="Ice.Trace.Retry" value="2"/>
+            <property name="Ice.Trace.Network" value="1"/>
+            <property name="Ice.Trace.ThreadPool" value="1"/>
+            <property name="Ice.Trace.Locator" value="1"/>
+            <!--<property name="Ice.ACM.Client" value="5"/>-->
+            <!--<property name="Ice.MonitorConnections" value="2"/>-->
+        </properties>
+
+        <server-template id="HelloServerTemp">
+            <parameter name="id" />
+            <icebox id="HelloServer${id}" exe="java" activation="on-demand">
+                <properties>
+                    <property refid="MultiThreaded" />
+                </properties>
+                <option>IceBox.Server</option>
+                <option>-Xmx512M</option>
+                <option>-DAppId=HelloServer${id}</option>
+                <evn>CLASSPATH=C:\Program Files (x86)\ZeroC\Ice-3.6.4\lib\*;</evn>
+                <service name="OnlineBook"  entry="com.txmd.service.OnlineBookI">
+                    <adapter name="OnlineBook" id="OnlineBook${id}" endpoints="tcp" replica-group="OnlineBookRep">
+                    </adapter>
+                </service>
+                <service name="SMSService"  entry="com.txmd.service.SMSServiceI">
+                    <adapter name="SMSService" id="SMSService${id}" endpoints="tcp" replica-group="SMSServiceRep">
+                    </adapter>
+                </service>
+            </icebox>
+        </server-template>
+
+        <relica-group id = "OnlineBookRep">
+            <load-balancing type="adaptive" n-replicas="0"/>
+            <object identity="OnlineBook" type="::book::OnlineBook" />
+        </relica-group>
+        <relica-group id = "SMSServiceRep">
+            <load-balancing type="round-robin" n-replicas="0"/>
+            <object identity="SMSService" type="::message::SMSService" />
+        </relica-group>
+
+        <node name="node1">
+            <server-instance template="HelloServerTemp" id="1" />
+            <server-instance template="HelloServerTemp" id="2" />
+        </node>
+    </application>
+</icegrid>

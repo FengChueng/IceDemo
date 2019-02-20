@@ -3,6 +3,9 @@ Hello.Proxy=hello:tcp -p 10000
 
 Sms.Proxy=sendSms:tcp -p 10000
 
-Mail.Proxy=sendMail:tcp -p 10000
+Mail.Proxy=sendMail:tcp -h localhost -p 10000:tcp -h localhost -p 10001:tcp
+
+
+OnlineBook.Proxy=OnlineBook:default -p 10000
 
 Ice.Default.Host=localhost
