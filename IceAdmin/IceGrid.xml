@@ -31,14 +31,14 @@
             </icebox>
         </server-template>
 
-        <relica-group id = "OnlineBookRep">
+        <replica-group id = "OnlineBookRep">
             <load-balancing type="adaptive" n-replicas="0"/>
             <object identity="OnlineBook" type="::book::OnlineBook" />
-        </relica-group>
-        <relica-group id = "SMSServiceRep">
+        </replica-group>
+        <replica-group id = "SMSServiceRep">
             <load-balancing type="round-robin" n-replicas="0"/>
             <object identity="SMSService" type="::message::SMSService" />
-        </relica-group>
+        </replica-group>
 
         <node name="node1">
             <server-instance template="HelloServerTemp" id="1" />

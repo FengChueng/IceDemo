@@ -1,0 +1,9 @@
+
+zeroc:
+  ice:
+    config:
+      iceCfgFilePath: config.server
+      iceAppName: TxmdIceServer
+      iceAdapterName: TxmdIceServerAdapter
+      iceServantMap:
+        hello: com.txmd.service.HelloImpl

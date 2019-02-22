@@ -30,7 +30,7 @@ public class Client extends Application{
         // 注册ShutdownHook，关闭应用时销毁Communicator实例
         setInterruptHook(new ShutdownHook());
         // 通过config.client中的Hello.Proxy，构造通用Proxy对象
-//        helloProxy();
+        helloProxy();
 
 //        sendSms();
 
