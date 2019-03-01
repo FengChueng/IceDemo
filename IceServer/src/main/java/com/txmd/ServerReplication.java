@@ -13,14 +13,10 @@ public class ServerReplication extends Application{
     @Override
     public int run(String[] strings) {
         ObjectAdapter serverAdapter = communicator().createObjectAdapter("Hello");
+        //servant
         serverAdapter.add(new HelloImpl(),Ice.Util.stringToIdentity("hello"));
-
-        //ami
         serverAdapter.add(new SmsServiceImpl(),Ice.Util.stringToIdentity("sendSms"));
-
-        //amd
         serverAdapter.add(new MailServiceImpl(),Ice.Util.stringToIdentity("sendMail"));
-
         serverAdapter.activate();
         System.out.println("服务已启动,端口:10001");
         communicator().waitForShutdown();
@@ -33,5 +29,4 @@ public class ServerReplication extends Application{
         System.exit(status);
         System.out.println("服务已退出,端口:10000");
     }
-
 }

@@ -1,8 +1,4 @@
 
-#Hello.Endpoints=tcp -p 10000
-#Ice.Default.Host=localhost
-
-
 #
 # The server creates one single object adapter with the name
 # "Hello". The following line sets the endpoints for this
