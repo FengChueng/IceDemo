@@ -1,0 +1,41 @@
+#
+# The IceStorm service instance name.
+#
+#IceStorm.InstanceName=DemoIceStorm
+
+#
+# This property defines the endpoints on which the IceStorm
+# TopicManager listens.
+#
+IceStorm.TopicManager.Endpoints=default -h localhost -p 9999
+
+#
+# This property defines the endpoints on which the topic
+# publisher objects listen. If you want to federate
+# IceStorm instances this must run on a fixed port (or use
+# IceGrid).
+#
+IceStorm.Publish.Endpoints=tcp -h localhost -p 9998:udp -h localhost -p 9998
+
+
+IceStorm.Trace.TopicManager=2
+IceStorm.Trace.Topic=1
+IceStorm.Trace.Subscriber=1
+
+#
+# Amount of time in milliseconds between flushes for batch mode
+# transfer. The minimum allowable value is 100ms.
+#
+IceStorm.Flush.Timeout=2000
+
+
+#Ice.Trace.Network=1
+Freeze.DbEnv.IceStorm.DbHome=../db
+
+#
+# IceMX configuration.
+#
+#Ice.Admin.Endpoints=tcp -h localhost -p 10004
+#Ice.Admin.InstanceName=icestorm
+IceMX.Metrics.Debug.GroupBy=id
+IceMX.Metrics.ByParent.GroupBy=parent

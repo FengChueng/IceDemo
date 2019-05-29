@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+//        classpath group: 'com.zeroc.gradle.ice-builder', name: 'slice', version: '1.4.5'
+        classpath "gradle.plugin.com.zeroc.gradle.ice-builder:slice:1.4.5"
+    }
+}
+
+plugins {
+    id "java-library"
+    id "maven-publish"
+}
+
+//通过apply，引入插件
+apply plugin: 'com.zeroc.gradle.ice-builder.slice'
+
+
+
+
+group 'com.feng'
+version '1.0-SNAPSHOT'
+apply plugin: 'java'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
+    }
+}
+
+dependencies {
+    // 项目依赖
+    compile 'com.zeroc:ice:3.6.4'
+    compile 'com.zeroc:icebox:3.6.4'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'ch.qos.logback:logback-core:1.2.3'
+//    compile 'mysql:mysql-connector-java:8.0.13'
+    testCompile 'junit:junit:4.12'
+}
+
+
+//更改slice插件的属性
+slice{
+    // 定义自动生成的代码存储目录，Slice 文件默认目录为 /src/main/slice
+//    output = file('src/main/java')
+//    output = file('../../sc-interface/src/main/java')
+//    output = file("${projectDir}/build")
+    output = file("${projectDir}/src/main/java")
+    java {
+        srcDir ="src/main/release"
+        include = ["${projectDir}/src/main/release"] //#include 指令的文件目录
+//        include = ["${projectDir}/src/main/slice"] //#include 指令的文件目录
+//        files = fileTree(dir: "src/main/slice", includes: ['**.ice'])
+    }
+}
+
+// 设置 UTF-8 编码，以免在构建时出现中文乱码
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

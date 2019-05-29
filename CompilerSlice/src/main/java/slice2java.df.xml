@@ -1,0 +1,35 @@
+<state>
+  <timestamp value='1559128758405' />
+  <sourceSet name='default'>
+    <source name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\release\Clock.ice'>
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\_ClockOperations.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\_ClockOperationsNC.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\_Marker.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\Clock.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\ClockHolder.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\ClockPrxHolder.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\ClockPrxHelper.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\ClockPrx.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\_ClockDisp.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\Demo\Callback_Clock_tick.java' />
+    </source>
+    <source name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\release\Monitor.ice'>
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\_MonitorOperations.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\_MonitorOperationsNC.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\_Marker.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\Measurement.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\Monitor.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\MeasurementHolder.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\MonitorHolder.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\MonitorPrxHolder.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\MonitorPrxHelper.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\MonitorPrx.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\_MonitorDisp.java' />
+      <file name='E:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice\src\main\java\com\feng\MMonitor\Callback_Monitor_report.java' />
+    </source>
+    <arg value='C:\Program Files (x86)\ZeroC\Ice-3.6.4\bin\slice2java.exe' />
+    <arg value='-IC:\Program Files (x86)\ZeroC\Ice-3.6.4\slice' />
+    <arg value='-IE:\ZeroC\IceStudyDemo\IceDemo\CompilerSlice/src/main/release' />
+    <arg value='-D__SLICE2JAVA_COMPAT__' />
+  </sourceSet>
+</state>

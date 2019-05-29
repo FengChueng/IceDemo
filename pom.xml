@@ -11,6 +11,7 @@
         <module>IceServer</module>
         <module>IceClient</module>
         <module>interfaces</module>
+        <module>IceStormDemo</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -43,6 +44,11 @@
             <dependency>
                 <groupId>com.zeroc</groupId>
                 <artifactId>icegrid</artifactId>
+                <version>${zeroc-ice.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroc</groupId>
+                <artifactId>icestorm</artifactId>
                 <version>${zeroc-ice.version}</version>
             </dependency>
             <!-- Spring MVC集成slf4j-logback -->
