@@ -23,7 +23,7 @@
         <zeroc-ice.version>3.6.4</zeroc-ice.version>
         <logback-ext-spring>0.1.1</logback-ext-spring>
         <commons-collections4.version>4.1</commons-collections4.version>
-        <commons-compress.version>1.14</commons-compress.version>
+        <commons-compress.version>1.21</commons-compress.version>
         <commons-email.version>1.4</commons-email.version>
     </properties>
 
